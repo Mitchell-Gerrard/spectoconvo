@@ -1,2 +1,2 @@
 # filepath: /spectoconvo/spectoconvo/__init__.py
-from .spectoconvo import add_message_to_spectrogram
+from .src.spectoconvo import add_message_to_spectrogram, decode

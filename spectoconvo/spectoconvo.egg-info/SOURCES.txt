@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+spectoconvo/spectoconvo.egg-info/PKG-INFO
+spectoconvo/spectoconvo.egg-info/SOURCES.txt
+spectoconvo/spectoconvo.egg-info/dependency_links.txt
+spectoconvo/spectoconvo.egg-info/requires.txt
+spectoconvo/spectoconvo.egg-info/top_level.txt

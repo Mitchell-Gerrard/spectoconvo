@@ -7,10 +7,11 @@ setup(
     description='A package to embed messages into spectrograms',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
+    package_dir={"": "spectoconvo"},
     author='Your Name',
-    author_email='your.email@example.com',
     url='https://github.com/yourusername/spectoconvo',
-    packages=find_packages(),
+    license='MIT',
+    packages=find_packages(where="spectoconvo"),
     install_requires=[
         'numpy',
         'scipy',
