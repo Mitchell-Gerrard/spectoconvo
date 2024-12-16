@@ -8,6 +8,13 @@ You can install the package using pip:
 
 ```sh
 pip install spectoconvo
+```
+
+## Usage
+
+Here's an example of how to use the `spectoconvo` package:
+
+```python
 from spectoconvo import add_message_to_spectrogram
 
 sound_file = 'audio.wav'
