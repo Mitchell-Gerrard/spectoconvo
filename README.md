@@ -31,8 +31,10 @@ changes_spectrogram_file = 'changes_spectrogram.png'
 
 image_path = 'output_image.png'
 
-add_message_to_spectrogram(sound_file, message, output_file, output_sound_file, output_spectrogram_file, changes_spectrogram_file, image_path)
+scale_freq,scale_time=add_message_to_spectrogram(sound_file, message, output_file, output_sound_file, output_spectrogram_file, changes_spectrogram_file, image_path,scale_freq,scale_time)
 ```
+Edit scale_freq and scale_time to scale the message in the spectrum after running the drfult setting, the defult is to the largest message possibe with the  at 20 kHz.
+
 Here's an example of how to decode a message using `spectoconvo` package:
 ```python
 from spectoconvo import add_message_to_spectrogram
