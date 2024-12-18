@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: spectoconvo
-Version: 0.1.0
+Version: 0.1.1
 Summary: A package to embed messages into spectrograms
-Home-page: https://github.com/Mitchell-Gerrard/spectoconvo
 Author: Mitchell Gerrard
 License: MIT
+Project-URL: Homepage, https://github.com/Mitchell-Gerrard/spectoconvo
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent

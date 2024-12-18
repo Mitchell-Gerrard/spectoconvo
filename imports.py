@@ -1,3 +1,3 @@
 import spectoconvo
 
-print(dir(spectoconvo))
+print(spectoconvo.__file__) 

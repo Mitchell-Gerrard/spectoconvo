@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
 from skimage import io, color, transform
 
-def text_to_image(text, font_path='arial.ttf', font_size=20, image_path='output_image.png'):
+def text_to_image(text, font_path='arial.ttf', font_size=20, image_path='message_image.png'):
     # Create a font object
-    font = ImageFont.truetype(font_path, font_size)
+    font = ImageFont.load_default(font_size)
     
     # Determine the size of the text
     text_bbox = font.getbbox(text)
@@ -38,7 +38,7 @@ def plot_inverted_image(image_path='output_image.png'):
 
     return grey_image
 
-def add_message_to_spectrogram(sound_file, message, output_file, output_sound_file, output_spectrogram_file, changes_spectrogram_file, image_path):
+def add_message_to_spectrogram(sound_file, message, inital_spectrum_image, output_sound_file, output_spectrogram_file,scale_freq=0,scale_time=0):
     # Read the sound file
     text_to_image(message)
     sample_rate, samples = wavfile.read(sound_file)
@@ -63,15 +63,14 @@ def add_message_to_spectrogram(sound_file, message, output_file, output_sound_fi
     
     # Plot the original spectrogram
     plt.figure(figsize=(10, 6))
-    plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud')
+    plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', cmap='inferno')
     plt.ylabel('Frequency [Hz]')
     plt.xlabel('Time [sec]')
     
     # Add the message to the spectrogram
-    plt.text(0.5, 0.5, message, fontsize=12, color='white', ha='center', va='center', transform=plt.gca().transAxes)
-    
+
     # Save the original spectrogram image
-    plt.savefig(output_file)
+    plt.savefig(inital_spectrum_image)
     plt.close()
     
     # Encode the message into the spectrogram
@@ -82,12 +81,16 @@ def add_message_to_spectrogram(sound_file, message, output_file, output_sound_fi
     freq_index = np.argmin(np.abs(frequencies - 20000))
     
     # Load and process the image
-    grey_image = plot_inverted_image(image_path)
+    grey_image = plot_inverted_image('message_image.png')
 
     
     # Resize the grey_image to match the desired range in Sxx
-    freq_range = min(100, Sxx.shape[0] - freq_index)  # Number of frequency bins to use
-    time_range = min(3000, Sxx.shape[1])  # Number of time bins to use
+    if scale_freq==0:
+        scale_freq= Sxx.shape[0] - freq_index
+    if scale_time==0:
+        scale_time= Sxx.shape[1]
+    freq_range =  scale_freq # Number of frequency bins to use
+    time_range = scale_time# Number of time bins to use
     grey_image_resized = transform.resize(grey_image, (freq_range, time_range))
     
     # Embed the grey_image into the spectrogram
@@ -122,6 +125,7 @@ def add_message_to_spectrogram(sound_file, message, output_file, output_sound_fi
     # Save the spectrogram image of the modified audio
     plt.savefig(output_spectrogram_file)
     plt.close()
+    return scale_freq, scale_time
 def decode(sound_file, image_path):
     # Read the sound file
     sample_rate, samples = wavfile.read(sound_file)
@@ -143,7 +147,7 @@ def decode(sound_file, image_path):
 
     # Plot the spectrogram
     plt.figure(figsize=(10, 6))
-    plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud')
+    plt.pcolormesh(times, frequencies, 10 * np.log10(Sxx), shading='gouraud', cmap='inferno')
     plt.ylabel('Frequency [Hz]')
     plt.xlabel('Time [sec]')
     plt.colorbar(label='Intensity [dB]')
