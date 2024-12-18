@@ -8,3 +8,4 @@ spectoconvo.egg-info/SOURCES.txt
 spectoconvo.egg-info/dependency_links.txt
 spectoconvo.egg-info/requires.txt
 spectoconvo.egg-info/top_level.txt
+spectoconvo/fonts/NotoSansSC-Bold.ttf

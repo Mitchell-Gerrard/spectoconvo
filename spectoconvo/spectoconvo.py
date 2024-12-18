@@ -4,10 +4,11 @@ from scipy.signal import stft, istft
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw, ImageFont
 from skimage import io, color, transform
-
-def text_to_image(text, font_path='arial.ttf', font_size=20, image_path='message_image.png'):
+import os
+def text_to_image(text, font_path='fonts/NotoSansSC-Bold.ttf', font_size=20, image_path='message_image.png'):
     # Create a font object
-    font = ImageFont.load_default(font_size)
+    print(os.path.exists(font_path))
+    font = ImageFont.truetype(font_path,font_size)
     
     # Determine the size of the text
     text_bbox = font.getbbox(text)
