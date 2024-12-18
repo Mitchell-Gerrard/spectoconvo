@@ -2,12 +2,11 @@ from spectoconvo import add_message_to_spectrogram
 
 sound_file = 'audio.wav'
 
-message = 'Hello, Human!'
+message = '我去见阿纳敌人!'
 
 inital_spectrum_image = 'output_spectrogram.png'
 
 output_sound_file = 'output_with_message.wav'
-
 output_spectrogram_file = 'output_with_message_spectrogram.png'
 
 

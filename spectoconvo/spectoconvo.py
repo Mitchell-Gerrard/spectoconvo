@@ -1,4 +1,5 @@
 import numpy as np
+import pkg_resources
 from scipy.io import wavfile
 from scipy.signal import stft, istft
 import matplotlib.pyplot as plt
@@ -7,7 +8,8 @@ from skimage import io, color, transform
 import os
 def text_to_image(text, font_path='fonts/NotoSansSC-Bold.ttf', font_size=20, image_path='message_image.png'):
     # Create a font object
-    print(os.path.exists(font_path))
+    font_path = pkg_resources.resource_filename('spectoconvo', 'fonts/NotoSansSC-Bold.ttf')
+
     font = ImageFont.truetype(font_path,font_size)
     
     # Determine the size of the text
