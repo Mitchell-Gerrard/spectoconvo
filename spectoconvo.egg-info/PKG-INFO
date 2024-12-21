@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: spectoconvo
-Version: 0.1.1
+Version: 0.1.2
 Summary: A package to embed messages into spectrograms
 Author: Mitchell Gerrard
 License: MIT
@@ -16,6 +16,7 @@ Requires-Dist: scipy
 Requires-Dist: matplotlib
 Requires-Dist: Pillow
 Requires-Dist: scikit-image
+Requires-Dist: setuptools
 
 # Spectoconvo
 
@@ -50,8 +51,10 @@ changes_spectrogram_file = 'changes_spectrogram.png'
 
 image_path = 'output_image.png'
 
-add_message_to_spectrogram(sound_file, message, output_file, output_sound_file, output_spectrogram_file, changes_spectrogram_file, image_path)
+scale_freq,scale_time=add_message_to_spectrogram(sound_file, message, output_file, output_sound_file, output_spectrogram_file, changes_spectrogram_file, image_path,scale_freq,scale_time)
 ```
+Edit scale_freq and scale_time to scale the message in the spectrum after running the drfult setting, the defult is to the largest message possibe with the  at 20 kHz.
+
 Here's an example of how to decode a message using `spectoconvo` package:
 ```python
 from spectoconvo import add_message_to_spectrogram
