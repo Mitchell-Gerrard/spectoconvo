@@ -3,3 +3,6 @@
 !.gitignore
 !pyproject.toml
 !clean_build.sh
+build/
+dist/
+*.egg-info/
