@@ -17,6 +17,7 @@ Requires-Dist: matplotlib
 Requires-Dist: Pillow
 Requires-Dist: scikit-image
 Requires-Dist: setuptools
+Requires-Dist: pydub
 
 # Spectoconvo
 

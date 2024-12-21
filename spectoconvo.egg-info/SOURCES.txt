@@ -1,9 +1,11 @@
 LICENSE
 README.md
 pyproject.toml
+spectoconvo/__init__.py
 spectoconvo/spectoconvo.py
 spectoconvo.egg-info/PKG-INFO
 spectoconvo.egg-info/SOURCES.txt
 spectoconvo.egg-info/dependency_links.txt
 spectoconvo.egg-info/requires.txt
 spectoconvo.egg-info/top_level.txt
+spectoconvo/fonts/NotoSansSC-Bold.ttf

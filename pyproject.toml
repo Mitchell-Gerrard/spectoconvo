@@ -23,7 +23,8 @@ dependencies = [
     "matplotlib",
     "Pillow",
     "scikit-image",
-    "setuptools"
+    "setuptools",
+    "pydub",
 ]
 [tool.setuptools]
 package-data = { "spectoconvo" = ["fonts/*.ttf"] }

@@ -4,3 +4,4 @@ matplotlib
 Pillow
 scikit-image
 setuptools
+pydub
