@@ -1,8 +1,11 @@
 # Created by venv; see https://docs.python.org/3/library/venv.html
-*
 !.gitignore
 !pyproject.toml
 !clean_build.sh
 build/
 dist/
 *.egg-info/
+__pycache__
+pyvenv.cfg
+bin
+.vscode
