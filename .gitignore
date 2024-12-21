@@ -2,3 +2,4 @@
 *
 !.gitignore
 !pyproject.toml
+!clean_build.sh
