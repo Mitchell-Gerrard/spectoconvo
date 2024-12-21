@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectoconvo"
+version = "0.1.2"
+description = "A package to embed messages into spectrograms"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Mitchell Gerrard" }]
+urls = { "Homepage" = "https://github.com/Mitchell-Gerrard/spectoconvo" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.6"
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "Pillow",
+    "scikit-image",
+    "setuptools"
+]
+[tool.setuptools]
+package-data = { "spectoconvo" = ["fonts/*.ttf"] }
+include-package-data = true
